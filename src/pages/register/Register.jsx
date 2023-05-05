@@ -1,6 +1,11 @@
-import { Card, Form, Row } from 'react-bootstrap'
+import { Button, Card, Form, Row } from 'react-bootstrap'
 import './Register.css'
+import Select from 'react-select'
 const Register = () => {
+  const options=[
+    {value:'Active',label:'Active'},
+    {value:'InActive',label:'InActive'},
+  ]
   return (
     <>
     <div className="container mt-5">
@@ -34,7 +39,17 @@ const Register = () => {
               </Form.Group>
               <Form.Group className="mb-3 col-lg-6" controlId="formBasicstatus">
                 <Form.Label>Select Employee Status</Form.Label>
+                <Select options={options}></Select>
               </Form.Group>
+              <Form.Group className="mb-3 col-lg-6" controlId="formProfilePicture">
+                <Form.Label>Choose Profile Picture</Form.Label>
+                <Form.Control type="file" name="user_profile"></Form.Control>
+              </Form.Group>
+              <Form.Group className="mb-3 col-lg-6" controlId="formBasiclocation">
+                <Form.Label> Location </Form.Label>
+                <Form.Control type="text" name="location_name" placeholder='Location'></Form.Control>
+              </Form.Group>
+              <Button varient="primary" type="submit">Submit</Button>
             </Row>
           </Form>
       </Card>
